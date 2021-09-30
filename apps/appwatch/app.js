@@ -22,10 +22,13 @@ function draw() {
   g.setFontAlign(0,1); // align center bottom
   // pad the date - this clears the background if the date were to change length
   var dateStr = "    "+require("locale").date(d)+"    ";
+  var yeardate = d.getFullYear()-578;
+  var monthdata = d.getMonth()-6;
+  var daydate = d.getDate()-7;
+  g.drawString("H "+yeardate+"/"+ monthdata+"/"+ daydate,120,170);
   g.drawString(dateStr, g.getWidth()/2, Y+15, true /*clear background*/);
   g.drawString("F|4:55 D|12:11 A|3:34 M|6:10 E|7:40",120,90);
 }
-
 // Clear the screen once, at startup
 g.clear();
 // draw immediately at first
