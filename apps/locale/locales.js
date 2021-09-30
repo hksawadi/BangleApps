@@ -568,23 +568,23 @@ var locales = {
     day: "nedelja,ponedeljek,torek,sreda,četrtek,petek,sobota",
     trans: { yes: "da", Yes: "Da", no: "ne", No: "Ne", ok: "ok", on: "Vklj.", off: "Izklj.", "< Back": "< Nazaj" }
   },
-  "pt_PT": {
+    "pt_PT": {
     lang: "pt_PT",
-    decimal_point: ",",
-    thousands_sep: " ",
-    currency_symbol: "€",
-    int_curr_symbol: "EUR",
-    speed: "kmh",
-    distance: { 0: "m", 1: "km" },
-    temperature: "°C",
+    decimal_point: ".",
+    thousands_sep: ",",
+    currency_symbol: "SAR", currency_first: true,
+    int_curr_symbol: "SAR",
+    speed: 'kph',
+    distance: { "0": "m", "1": "km" },
+    temperature: '°C',
     ampm: { 0: "am", 1: "pm" },
     timePattern: { 0: "%HH:%MM:%SS ", 1: "%HH:%MM" },
-    datePattern: { 0: "%d %b %Y", 1: "%d/%m/%y" },
-    abmonth: "Jan,Fev,Mar,Abr,Mai,Jun,Jul,Ago,Set,Out,Nov,Dez",
-    month: "Janeiro,Fevereiro,Março,Abril,Maio,Junho,Julho,Agosto,Setembro,Outubro,Novembro,Dezembro",
-    abday: "Dom,Seg,Ter,Qua,Qui,Sex,Sab",
-    day: "Domingo,Segunda-feira,Terça-feira,Quarta-feira,Quinta-feira,Sexta-feira,Sábado",
-    trans: { yes: "sim", Yes: "Sim", no: "não", No: "Não", ok: "ok", on: "on", off: "off" }
+    datePattern: { 0: "%b %d %Y", 1: "%d/%m/%Y" }, // Feb 28 2020" // "01/03/2020"(short)
+    //abmonth: "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec",
+    month: "Muharram,Safar,Rabi Al-Awwal,Rabi Al-Thani,Jamada Al-Awwal,Jumādā Al-Akhirah,Rajab,Shaban,Ramadan,Shawwal,Du al-Qedah,Du al-Hijjah",
+    //abday: "Sun,Mon,Tue,Wed,Thu,Fri,Sat",
+    day: "Al-Ahad,Al-Ithnayn,Ath-Thulatha,Al-Arbia,Al-Khamis,Al-Jumah,As-Sabt",
+    // No translation for english...
   },
 /*,
   "he_IL": { // This won't work until we get a font - see https://github.com/espruino/BangleApps/issues/399
