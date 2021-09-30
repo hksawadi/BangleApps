@@ -3542,11 +3542,11 @@
   ]
 },
 { "id": "appwatch",
-  "name": "Test Watch",
+  "name": "My Timer App",
   "icon": "app.png",
   "version":"0.01",
-  "description": "A clock.",
-  "tags":"clock",
+  "description": "This is a description of my awesome app",
+  "tags": "clock",
   "type":"clock",
   "storage": [
     {"name":"appwatch.app.js","url":"app.js"},
