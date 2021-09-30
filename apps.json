@@ -3540,5 +3540,17 @@
     {"name":"waveclk.app.js","url":"app.js"},
     {"name":"waveclk.img","url":"app-icon.js","evaluate":true}
   ]
-}
+},
+{ "id": "appwatch",
+  "name": "Test Watch",
+  "icon": "app.png",
+  "version":"0.01",
+  "description": "A clock.",
+  "tags":"clock",
+  "type":"clock",
+  "storage": [
+    {"name":"appwatch.app.js","url":"app.js"},
+    {"name":"appwatch.img","url":"app-icon.js","evaluate":true}
+  ]
+ }	
 ]
