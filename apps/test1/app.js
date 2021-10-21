@@ -5,14 +5,14 @@ const X = 160, Y = 140;
 var counterInterval;
 
 function showmess() {
-  E.showMessage("Pray Time","Fajar");
+  E.showMessage("Pray Time","Duhar");
 
   // again, 10 secs later
   setTimeout(showmess, 10000);
   var d = new Date();
-  var h = d.getHours()+5, m = d.getMinutes();
+  var h = d.getHours(), m = d.getMinutes();
   var time = (" "+h).substr(-2) + ":" + ("0"+m).substr(-2);
-    if (time === '14:09'){
+    if (time === '12:06'){
       g.clear();
       draw();
   }
@@ -21,7 +21,7 @@ function showmess() {
 function draw() {
   // work out how to display the current time
   var d = new Date();
-  var h = d.getHours()+5, m = d.getMinutes();
+  var h = d.getHours(), m = d.getMinutes();
   var time = (" "+h).substr(-2) + ":" + ("0"+m).substr(-2);
   // Reset the state of the graphics library
   g.reset();
@@ -47,7 +47,7 @@ function draw() {
   g.drawString("Past Duh 12:05 PM",120,65);
   g.drawString("Next Asr 3:23 PM",120,200);
 
-  var f = "14:08";
+  var f = "12:05";
   if (time === f){
     showmess();
     setTimeout(showmess, 10000);
