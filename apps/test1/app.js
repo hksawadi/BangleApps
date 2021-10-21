@@ -44,8 +44,8 @@ function draw() {
   g.drawString(dateStr, g.getWidth()/2, Y+15, true /*clear background*/);
   //g.drawString("F|4:55 D|12:11 A|3:34 M|6:10 E|7:40",120,90);
   g.setFont("6x8",2);
-  g.drawString("Past Duh 12:05 PM",120,50);
-  g.drawString("Next Asr 3:23 PM",120,210);
+  g.drawString("Past Duh 12:05 PM",120,65);
+  g.drawString("Next Asr 3:23 PM",120,200);
 
   var f = "14:08";
   if (time === f){
