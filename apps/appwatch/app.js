@@ -1,50 +1,54 @@
-// Load fonts
-require("Font7x11Numeric7Seg").add(Graphics);
-// position on screen
-const X = 160, Y = 140;
+Bangle.setLCDPower(1);
+Bangle.setLCDTimeout(0);
+var counter = 0;
 
-function draw() {
-  // work out how to display the current time
-  var d = new Date();
-  var h = d.getHours(), m = d.getMinutes();
-  var time = (" "+h).substr(-2) + ":" + ("0"+m).substr(-2);
-  // Reset the state of the graphics library
-  g.reset();
-  // draw the current time (4x size 7 segment)
-  g.setFont("7x11Numeric7Seg",4);
-  g.setFontAlign(1,1); // align right bottom
-  g.drawString(time, X, Y, true /*clear background*/);
-  // draw the seconds (2x size 7 segment)
-  g.setFont("7x11Numeric7Seg",2);
-  g.drawString(("0"+d.getSeconds()).substr(-2), X+30, Y, true /*clear background*/);
-  // draw the date, in a normal font
-  g.setFont("6x8");
-  g.setFontAlign(0,1); // align center bottom
-  // pad the date - this clears the background if the date were to change length
-  var dateStr = "    "+require("locale").date(d)+"    ";
-  var yeardate = d.getFullYear()-578;
-  var monthdata = d.getMonth()-6;
-  var daydate = d.getDate()-7;
-  g.drawString("H "+yeardate+"/"+ monthdata+"/"+ daydate,120,170);
-  g.drawString(dateStr, g.getWidth()/2, Y+15, true /*clear background*/);
-  g.drawString("F|4:55 D|12:11 A|3:34 M|6:10 E|7:40",120,90);
+function updateScreen() {
+  g.clearRect(0, 250, 250, 150);
+  g.setColor(0xFFFF);
+  g.setFont("Vector",40).setFontAlign(0,0);
+  //g.drawString(Math.floor(counter), g.getWidth()/2, 100);
+  g.drawString(Math.floor(counter), g.getWidth()/2, 200);
+  g.drawString('-', 45, 200);
+  g.drawString('-', 45, 200);
+  //g.drawString('-', 45, 100);
+  g.drawString('+', 190, 200);
+ // g.drawString('+', 185, 100);
 }
-// Clear the screen once, at startup
-g.clear();
-// draw immediately at first
-draw();
-var secondInterval = setInterval(draw, 1000);
-// Stop updates when LCD is off, restart when on
-Bangle.on('lcdPower',on=>{
-  if (secondInterval) clearInterval(secondInterval);
-  secondInterval = undefined;
-  if (on) {
-    secondInterval = setInterval(draw, 1000);
-    draw(); // draw immediately
+
+
+
+setWatch(() => {
+   if(counter!=7){
+  counter += 1;}
+  if(counter==7){
+   //g.drawImage(require("Storage").read("am.img"),66,27);
+    //g.clear(1).setFont("6x8");
+    g.drawString('Taqabal', 125, 50);
+    g.drawString('Allah', 125, 100);
+    counter=7;
   }
-});
-// Load widgets
+  updateScreen();
+}, BTN1, {repeat:true});
+
+
+setWatch(() => {
+  counter -= 1;
+  g.clear();
+  if(counter==-1){
+    counter=0;}
+  updateScreen();
+}, BTN3, {repeat:true});
+
+
+setWatch(() => {
+  g.clear();
+  counter = 0;
+  updateScreen();
+}, BTN2, {repeat:true});
+
+g.clear(1).setFont("6x8");
+//g.drawString(' Taqabal Allah', 25, 100);
+
 Bangle.loadWidgets();
 Bangle.drawWidgets();
-// Show launcher when middle button pressed
-Bangle.setUI("clock");
+updateScreen();
