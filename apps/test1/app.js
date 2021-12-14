@@ -4,17 +4,27 @@ require("Font7x11Numeric7Seg").add(Graphics);
 const X = 160, Y = 140;
 var counterInterval;
 
-function showmess() {
-  E.showMessage("Pray Time","Duhar");
+function showmess(time) {
+  var t = time;
+  if(time === "5:30"){
+E.showMessage("Pray Time","Fajar");
+  }
+  if(time === "12:16"){
+E.showMessage("Pray Time","Duhur");
+  }
+   if(time === "15:21"){
+E.showMessage("Pray Time","Asr");
+  }
+   if(time === "17:42"){
+E.showMessage("Pray Time","Maghrib");
+  }
+   if(time === "19:12"){
+E.showMessage("Pray Time","Isha");
+  }
 
-  // again, 10 secs later
-  setTimeout(showmess, 10000);
-  var d = new Date();
-  var h = d.getHours(), m = d.getMinutes();
-  var time = (" "+h).substr(-2) + ":" + ("0"+m).substr(-2);
-    if (time === '12:06'){
-      g.clear();
-      draw();
+  if(time != t){
+    g.clear(); 
+    draw();
   }
 }
 
@@ -39,19 +49,61 @@ function draw() {
   var dateStr = "    "+require("locale").date(d)+"    ";
   var yeardate = d.getFullYear()-578;
   var monthdata = d.getMonth()-6;
-  var daydate = d.getDate()-7;
+  var daydate = d.getDate()-4;
   g.drawString("H "+yeardate+"/"+ monthdata+"/"+ daydate,120,90);
   g.drawString(dateStr, g.getWidth()/2, Y+15, true /*clear background*/);
   //g.drawString("F|4:55 D|12:11 A|3:34 M|6:10 E|7:40",120,90);
   g.setFont("6x8",2);
-  g.drawString("Past Duh 12:05 PM",120,65);
-  g.drawString("Next Asr 3:23 PM",120,200);
-
-  var f = "12:05";
-  if (time === f){
-    showmess();
-    setTimeout(showmess, 10000);
+  
+  if(time > "05:30" && time < "12:16" ){ 
+  g.drawString("Past Fajr 05:30 AM",120,40); 
+  g.drawString("Next Duhur 12:16 PM",120,220);
   }
+  
+  if(time > "12:16" && time < "15:21" ){ 
+  g.drawString("Past Duh 12:16 PM",120,40);
+  g.drawString("Next Asr 15:21 PM",120,220);
+  }
+  
+  if(time > "15:21" && time < "17:42" ){ 
+  g.drawString("Past Asr 15:21 PM",120,40); 
+  g.drawString("Next Maghrib 17:42 PM",120,220); 
+  }
+  if(time > "17:42" && time < "19:12" ){ 
+  g.drawString("Past Maghrib 17:42 PM",120,40); 
+  g.drawString("Next Isha 19:12",120,220); 
+  }
+  if(time > "19:12" && time < "5:30" ){ 
+  g.drawString("Past Isha 19:12 PM",120,40); 
+  g.drawString("Next Fajr 5:30 AM",120,220); 
+  }
+
+  var fajr= "14:50";
+  if (time === fajr){
+    g.clear();
+    showmess(time);
+  }
+  var duhur= "12:16";
+  if (time === duhur){
+    g.clear();
+    showmess(time);
+  }
+  var asr= "15:21";
+  if (time === asr){
+    g.clear();
+    showmess(time);
+  }
+  var maghrib= "17:42";
+  if (time === maghrib){
+    g.clear();
+    showmess(time);
+  }
+  var isha= "19:12";
+  if (time === isha){
+    g.clear();
+    showmess(time);
+  }
+  
 }
 // Clear the screen once, at startup
 g.clear();
