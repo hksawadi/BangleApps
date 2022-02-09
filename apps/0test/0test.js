@@ -65,7 +65,7 @@ Bangle.on('HRM-raw', function(v) {
   }
 });
 
-// It takes 5 secs for us to get the first HRM event
+// 5 sec counter
 var counter = 5;
 function countDown() {
   if (counter) {
