@@ -3,11 +3,11 @@
   "name": "Test Heart Rate",
   "version": "0.02",
   "description": " test app for heartbeat montorting",
-  "icon": "hicon.png",
+  "icon": "heicon.png",
   "tags": "health",
   "supports": ["BANGLEJS","BANGLEJS2"],
   "storage": [
     {"name":"0test.app.js","url":"0test.js"},
-    {"name":"0test.img","url":"hicon-icon.js","evaluate":true}
+    {"name":"0test.img","url":"heicon-icon.js","evaluate":true}
   ]
 }
