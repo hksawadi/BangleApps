@@ -33,7 +33,9 @@ function onHRM(h) {
   var px = g.getWidth()/2;
   g.setFontAlign(0,0);
   g.clearRect(0,24,g.getWidth(),80);
-  g.setFont("6x8").drawString("Confidence "+hrmInfo.confidence+"%", px, 75);
+  var state = hrmInfo.confidence;
+  state = (state <= 45 ) ? 'RELAXED' : 'NOT RELAXED'; 
+  g.setFont("6x8").drawString("Condition: "+ state, px, 75);
   var str = hrmInfo.bpm;
   g.setFontVector(40).drawString(str,px,45);
   px += g.stringWidth(str)/2;
