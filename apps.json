@@ -544,7 +544,7 @@
     ]
   },
   { "id": "heart",
-    "name": "Heart Rate Recorder",
+    "name": "Heart Rate Recorder Widget test",
     "icon": "app.png",
     "version":"0.06",
     "interface": "interface.html",
