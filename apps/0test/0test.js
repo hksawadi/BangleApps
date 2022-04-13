@@ -32,15 +32,15 @@ function onHRM(h) {
 
   var px = g.getWidth()/2;
   g.setFontAlign(0,0);
-  g.clearRect(0,24,g.getWidth(),80);
+  g.clearRect(0,120,g.getWidth(),80);
   var state = hrmInfo.confidence;
-  state = (state <= 45 ) ? 'RELAXED' : 'NOT RELAXED'; 
-  g.setFont("6x8").drawString("Condition: "+ state, px, 75);
+  state = (state >= 45 ) ? 'RELAXED' : 'NOT RELAXED';
+  g.setFont("Vector:12").drawString("Condition: "+ state, px, 120);
   var str = hrmInfo.bpm;
-  g.setFontVector(40).drawString(str,px,45);
+  g.setFontVector(40).drawString(str,px,100);
   px += g.stringWidth(str)/2;
-  g.setFont("6x8");
-  g.drawString("BPM",px+15,45);
+  //g.setFont("4x6");
+  //g.drawString("BPM",px+15,130);
 }
 Bangle.on('HRM', onHRM);
 
